@@ -4,7 +4,7 @@ import turn from "../../img/seta_virar.png";
 import { ClosedQuestion, OpenQuestion, ContainerBotoes, AnswerButton } from "./style";
 
 export default function Card(props) {
-  const { question, answer, i } = props;
+  const { question, answer, i, setAnswerCounter, answerCounter } = props;
   const [cardSwitch, setCardSwitch] = useState("closed");
   const [activeSwitch, setActiveSwitch] = useState(true);
   const [textColor, SetTextColor] = useState("#333333");
@@ -14,14 +14,14 @@ export default function Card(props) {
     setCardSwitch("closed");
     setTextDecoration("line-through");
     setActiveSwitch(false);
+    setAnswerCounter(answerCounter + 1);
     if (props === "red") {
       SetTextColor("#FF3030");
-    } else if ( props === "orange") {
+    } else if (props === "orange") {
       SetTextColor("#FF922E");
     } else if (props === "green") {
       SetTextColor("#2FBE34");
     }
-
   }
 
   if (cardSwitch === "closed") {

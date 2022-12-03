@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import {FooterCompleted} from "./style"
+import { FooterCompleted } from "./styles";
 
-export default function Footer() {
+export default function Footer(props) {
+  const { answerCounter } = props;
   return (
     <FooterCompleted className="footer-concluidos">
-      <p>0/4 CONCLUÍDOS</p>
+      <p>{answerCounter}/8 CONCLUÍDOS</p>
     </FooterCompleted>
   );
 }

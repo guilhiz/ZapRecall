@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ClosedQuestion = styled.div`
   width: 300px;
@@ -17,8 +17,11 @@ export const ClosedQuestion = styled.div`
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: ${props => props.textColor};
-    text-decoration: ${props => props.textDecoration};
+    color: ${(props) => props.textColor};
+    text-decoration: ${(props) => props.textDecoration};
+  }
+  > img {
+    cursor: pointer;
   }
 `;
 
@@ -44,6 +47,7 @@ export const OpenQuestion = styled.div`
     position: absolute;
     bottom: 10px;
     right: 10px;
+    cursor: pointer;
   }
 `;
 
