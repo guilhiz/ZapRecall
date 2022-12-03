@@ -1,9 +1,29 @@
-import zapLogo from "../../img/logo.png"
+import zapLogo from "../../img/logo.png";
+import styled from "styled-components";
 export default function Header() {
   return (
-    <div className="logo-container">
+    <LogoContainer className="logo-container">
       <img src={zapLogo} alt="logo do ZapRecall" />
       <h1>ZapRecall</h1>
-    </div>
+    </LogoContainer>
   );
 }
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 40px 0 20px 0;
+
+  img {
+    width: 52px;
+  }
+  h1 {
+    font-family: "Righteous";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    color: #ffffff;
+    margin-left: 20px;
+  }
+`;
