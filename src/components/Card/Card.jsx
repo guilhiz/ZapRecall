@@ -1,24 +1,41 @@
 import React, { useState } from "react";
 import play from "../../img/seta_play.png";
 import turn from "../../img/seta_virar.png";
-import styled from "styled-components";
+import { ClosedQuestion, OpenQuestion, ContainerBotoes, AnswerButton } from "./style";
 
 export default function Card(props) {
   const { question, answer, i } = props;
-  const [cardSwitch, setCardSwitch] = useState(0);
+  const [cardSwitch, setCardSwitch] = useState("closed");
+  const [activeSwitch, setActiveSwitch] = useState(true);
+  const [textColor, SetTextColor] = useState("#333333");
+  const [textDecoration, setTextDecoration] = useState("none");
 
-  if (cardSwitch === 0) {
+  function handleClick(props) {
+    setCardSwitch("closed");
+    setTextDecoration("line-through");
+    setActiveSwitch(false);
+    if (props === "red") {
+      SetTextColor("#FF3030");
+    } else if ( props === "orange") {
+      SetTextColor("#FF922E");
+    } else if (props === "green") {
+      SetTextColor("#2FBE34");
+    }
+
+  }
+
+  if (cardSwitch === "closed") {
     return (
-      <ClosedQuestion>
+      <ClosedQuestion textColor={textColor} textDecoration={textDecoration}>
         <p>{`pergunta ${i + 1}`}</p>
-        <img onClick={() => setCardSwitch(1)} src={play} alt="icon de play" />
+        <img onClick={() => activeSwitch && setCardSwitch("openQuestion")} src={play} alt="icon de play" />
       </ClosedQuestion>
     );
-  } else if (cardSwitch === 1) {
+  } else if (cardSwitch === "openQuestion") {
     return (
       <OpenQuestion>
         <p>{question}</p>
-        <img onClick={() => setCardSwitch(2)} src={turn} alt="icon de turn" />
+        <img onClick={() => setCardSwitch("openAnswer")} src={turn} alt="icon de turn" />
       </OpenQuestion>
     );
   }
@@ -26,89 +43,16 @@ export default function Card(props) {
     <OpenQuestion>
       <p>{answer}</p>
       <ContainerBotoes>
-        <StyledButton color="#FF3030">Não lembrei</StyledButton>
-        <StyledButton color="#FF922E">Quase não lembrei</StyledButton>
-        <StyledButton color="#2FBE34">Zap</StyledButton>
+        <AnswerButton onClick={() => handleClick("red")} color="#FF3030">
+          Não lembrei
+        </AnswerButton>
+        <AnswerButton onClick={() => handleClick("orange")} color="#FF922E">
+          Quase não lembrei
+        </AnswerButton>
+        <AnswerButton onClick={() => handleClick("green")} color="#2FBE34">
+          Zap
+        </AnswerButton>
       </ContainerBotoes>
     </OpenQuestion>
   );
 }
-
-const ClosedQuestion = styled.div`
-  width: 300px;
-  height: 35px;
-  background-color: #ffffff;
-  margin: 12px;
-  padding: 15px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  > p {
-    font-family: "Recursive";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    color: #333333;
-  }
-`;
-
-const OpenQuestion = styled.div`
-  width: 300px;
-  margin: 12px;
-  padding: 15px;
-  min-height: 100px;
-  background: #ffffd5;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  font-family: "Recursive";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #333333;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  > img {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-  }
-`;
-
-const ContainerBotoes = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 20px;
-`;
-
-const StyledButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 85px;
-  height: 37px;
-  background: ${(props) => props.color};
-  border-radius: 5px;
-  border: 1px solid ${(props) => props.color};
-  padding: 5px;
-  font-family: "Recursive";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  color: #ffffff;
-  cursor: pointer;
-  :active {
-    scale: 0.9;
-  }
-  :hover {
-    opacity: 0.8;
-  }
-`;
