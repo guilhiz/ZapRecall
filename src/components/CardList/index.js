@@ -8,6 +8,7 @@ export default function CardList(props) {
     <>
       {mockCards.map((c, i) => (
         <Card
+          key={i}
           question={c.question}
           i={i}
           answer={c.answer}
