@@ -10,7 +10,7 @@ export default function MainPage() {
   return (
     <ScreenContainer>
       <GlobalStyle />
-      <Header />
+      <Header direction="row" imgWidth="52px"/>
       <CardList setAnswerCounter={setAnswerCounter} answerCounter={answerCounter} />
       <Footer answerCounter={answerCounter} />
     </ScreenContainer>

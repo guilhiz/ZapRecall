@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const LogoContainer = styled.div`
   display: flex;
+  flex-direction: ${(props) => props.direction};
   align-items: center;
   margin: 40px 0 20px 0;
 
   img {
-    width: 52px;
+    width: ${(props) => props.imgWidth};
   }
   h1 {
     font-family: "Righteous";
