@@ -3,7 +3,6 @@ import { LogoContainer } from "./styles";
 
 export default function Header(props) {
   const {direction, imgWidth} = props
-  console.log(imgWidth)
   return (
     <LogoContainer direction={direction} imgWidth={imgWidth} className="logo-container">
       <img src={zapLogo} alt="logo do ZapRecall" />

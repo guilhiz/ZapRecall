@@ -1,8 +1,8 @@
 import mockCards from "./mockCards";
-import Card from "../Card/Card";
+import Card from "../Card";
 
 export default function CardList(props) {
-  const { setAnswerCounter, answerCounter } = props;
+  const { setAnswerCounter, answerCounter, setFooterIcon, footerIcon } = props;
 
   return (
     <>
@@ -13,6 +13,8 @@ export default function CardList(props) {
           answer={c.answer}
           setAnswerCounter={setAnswerCounter}
           answerCounter={answerCounter}
+          setFooterIcon={setFooterIcon}
+          footerIcon={footerIcon}
         />
       ))}
     </>

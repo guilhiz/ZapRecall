@@ -1,5 +1,5 @@
-import LoginPage from "./LoginPage/LoginPage";
-import MainPage from "./MainPage/MainPage";
+import LoginPage from "./LoginPage";
+import MainPage from "./MainPage";
 import React, { useState } from "react";
 
 export default function App() {
