@@ -54,4 +54,4 @@ border-spacing: 0;
 }
 `;
 
-export default GlobalStyle
+export default GlobalStyle;

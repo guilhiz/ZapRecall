@@ -7,5 +7,5 @@ export const ScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom:200px;
+  padding-bottom: 200px;
 `;

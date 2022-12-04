@@ -6,7 +6,8 @@ import party from "../../img/party.png";
 import sad from "../../img/sad.png";
 
 export default function Footer(props) {
-  const { answerCounter, footerIcon, children } = props;
+  const { answerCounter, footerIcon } = props;
+  const maxAnswers = 8;
 
   function footerText() {
     if (footerIcon.includes("miss")) {
@@ -31,9 +32,11 @@ export default function Footer(props) {
     );
   }
   return (
-    <FooterCompleted data-test="footer" className="footer-concluidos">
-      {answerCounter === 8 && footerText()}
-      <p>{answerCounter}/8 CONCLUÍDOS</p>
+    <FooterCompleted data-test="footer">
+      {answerCounter === maxAnswers && footerText()}
+      <p>
+        {answerCounter}/{maxAnswers} CONCLUÍDOS
+      </p>
       <ContainerIcons>
         {footerIcon.map((a, i) => (
           <img

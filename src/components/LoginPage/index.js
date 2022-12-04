@@ -3,7 +3,6 @@ import Header from "../Header";
 import GlobalStyle from "../../GlobalStyle";
 import { Container, ContainerLogin, ButtonLogin } from "./styles";
 
-
 function LoginPage({ setChangePage }) {
   return (
     <Container>
