@@ -1,12 +1,20 @@
-import mockCards from "./mockCards";
+import { mockCards1, mockCards2, mockCards3 } from "./mockCards";
 import Card from "../Card";
+const dois = 2;
 
 export default function CardList(props) {
-  const { setAnswerCounter, answerCounter, setFooterIcon, footerIcon } = props;
-
+  const { setAnswerCounter, answerCounter, setFooterIcon, changeDeck } = props;
+  function switchDeck() {
+    if (changeDeck === "G") {
+      return mockCards2;
+    } else if (changeDeck === "H") {
+      return mockCards3;
+    }
+    return mockCards1;
+  }
   return (
     <>
-      {mockCards.map((c, i) => (
+      {switchDeck().map((c, i) => (
         <Card
           key={i}
           question={c.question}
@@ -15,7 +23,6 @@ export default function CardList(props) {
           setAnswerCounter={setAnswerCounter}
           answerCounter={answerCounter}
           setFooterIcon={setFooterIcon}
-          footerIcon={footerIcon}
         />
       ))}
     </>

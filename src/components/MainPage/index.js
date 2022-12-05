@@ -5,7 +5,7 @@ import CardList from "../CardList";
 import GlobalStyle from "../../GlobalStyle";
 import { ScreenContainer } from "./styles";
 
-export default function MainPage() {
+export default function MainPage({changeDeck}) {
   const [answerCounter, setAnswerCounter] = useState(0);
   const [footerIcon, setFooterIcon] = useState([]);
 
@@ -16,8 +16,8 @@ export default function MainPage() {
       <CardList
         setAnswerCounter={setAnswerCounter}
         answerCounter={answerCounter}
-        footerIcon={footerIcon}
         setFooterIcon={setFooterIcon}
+        changeDeck={changeDeck}
       />
       <Footer answerCounter={answerCounter} footerIcon={footerIcon} />
     </ScreenContainer>

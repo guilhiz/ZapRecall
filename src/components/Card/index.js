@@ -7,7 +7,7 @@ import turn from "../../img/seta_virar.png";
 import { ClosedQuestion, OpenQuestion, ContainerBotoes, AnswerButton } from "./style";
 
 export default function Card(props) {
-  const { question, answer, i, setAnswerCounter, answerCounter, footerIcon, setFooterIcon } = props;
+  const { question, answer, i, setAnswerCounter, answerCounter, setFooterIcon } = props;
   const [cardSwitch, setCardSwitch] = useState("closed");
   const [activeSwitch, setActiveSwitch] = useState(true);
   const [textColor, SetTextColor] = useState("#333333");
@@ -20,22 +20,21 @@ export default function Card(props) {
     setTextDecoration("line-through");
     setActiveSwitch(false);
     setAnswerCounter(answerCounter + 1);
-    const arr = footerIcon;
     if (props === "red") {
       SetTextColor("#FF3030");
       setIcon(miss);
       setDataTest("no-icon");
-      setFooterIcon([...arr, "miss"]);
+      setFooterIcon((c) => [...c, "miss"]);
     } else if (props === "orange") {
       SetTextColor("#FF922E");
       setIcon(partial);
       setDataTest("partial-icon");
-      setFooterIcon([...arr, "partial"]);
+      setFooterIcon((c) => [...c, "partial"]);
     } else if (props === "green") {
       SetTextColor("#2FBE34");
       setIcon(zap);
       setDataTest("zap-icon");
-      setFooterIcon([...arr, "zap"]);
+      setFooterIcon((c) => [...c, "zap"]);
     }
   }
 

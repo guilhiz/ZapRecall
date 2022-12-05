@@ -17,14 +17,48 @@ export const ContainerLogin = styled.div`
   height: 85vh;
 `;
 
+export const ChooseDeck = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  height: 70px;
+  gap: 10px;
+  margin: 0px 0px 42px;
+  > button {
+    width: 100px;
+    height: 54px;
+    background: #ffffff;
+    border: 1px solid #d70900;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Recursive";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #d70900;
+    :active {
+      scale: 0.9;
+    }
+    :focus {
+      color: #fffb48;
+      border: 1px solid #fffb48;
+      background: #333333;
+      background: #072440;
+    }
+  }
+`;
+
 export const ButtonLogin = styled.button`
   width: 246px;
   height: 54px;
-  background: #ffffff;
+  background: ${(props) => (props.clicked ? "#ffffff" : "#9faab5")};
   border: 1px solid #d70900;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  cursor: pointer;
+  cursor: ${(props) => (props.clicked ? "pointer" : "not-allowed")};
 
   font-family: "Recursive";
   font-style: normal;
@@ -34,9 +68,9 @@ export const ButtonLogin = styled.button`
   text-align: center;
   color: #d70900;
   :active {
-    scale: 0.9;
+    scale: ${(props) => (props.clicked ? "0.9" : "1")};
   }
   :hover {
-    opacity: 0.7;
+    opacity: ${(props) => (props.clicked ? "0.7" : "1")};
   }
 `;
