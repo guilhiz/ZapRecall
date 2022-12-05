@@ -9,7 +9,7 @@ function LoginPage({ setChangePage, setChangeDeck }) {
   function handleClick(props) {
     setButtonText("Iniciar Recall!");
     setClicked(true);
-    setChangeDeck(props)
+    setChangeDeck(props);
   }
   return (
     <Container>
@@ -21,7 +21,7 @@ function LoginPage({ setChangePage, setChangeDeck }) {
           <button onClick={() => handleClick("G")}>Game of Thrones</button>
           <button onClick={() => handleClick("H")}>Harry Potter</button>
         </ChooseDeck>
-        <ButtonLogin clicked={clicked} data-test="start-btn" onClick={() => setChangePage(false)}>
+        <ButtonLogin clicked={clicked} data-test="start-btn" onClick={() => clicked && setChangePage(false)}>
           {buttonText}
         </ButtonLogin>
       </ContainerLogin>

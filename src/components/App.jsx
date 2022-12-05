@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export default function App() {
   const [changePage, setChangePage] = useState(true);
-  const [changeDeck, setChangeDeck] = useState()
+  const [changeDeck, setChangeDeck] = useState();
   if (changePage) {
     return <LoginPage setChangePage={setChangePage} setChangeDeck={setChangeDeck} />;
   }
